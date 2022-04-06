@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, Image} from 'react-native';
+import {View, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 
@@ -7,7 +7,9 @@ const Header = () => {
   return (
     <View style={styles.wrapper}>
       <View style={styles.menu}>
-        <Feather name="menu" size={30} color="#313140" />
+        <TouchableOpacity onPress={() => {}}>
+          <Feather name="menu" size={30} color="#313140" />
+        </TouchableOpacity>
       </View>
       <View style={styles.logo}>
         <Image
@@ -16,7 +18,9 @@ const Header = () => {
         />
       </View>
       <View style={styles.search}>
-        <Fontisto name="search" size={30} color="#313140" />
+        <TouchableOpacity onPress={() => {}}>
+          <Fontisto name="search" size={30} color="#313140" />
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -31,6 +35,7 @@ const styles = StyleSheet.create({
   menu: {
     flex: 1,
     justifyContent: 'center',
+    alignItems: 'flex-start',
   },
   logo: {
     flex: 1,
