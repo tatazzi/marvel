@@ -1,63 +1,55 @@
 import React from 'react';
-import {View, StyleSheet, Image} from 'react-native';
+import {View, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-const Categorys = () => {
+const CategoryButton = ({iconImages, linearColors, onPress}) => {
   return (
-    <View style={styles.allCategorys}>
-      <LinearGradient style={styles.hero} colors={['#005BEA', '#00C6FB']}>
-        <Image source={require('../assets/categoriesImages/hero.png')} />
+    <TouchableOpacity onPress={onPress}>
+      <LinearGradient style={styles.categoryButton} colors={linearColors}>
+        <Image source={iconImages} />
       </LinearGradient>
-      <LinearGradient style={styles.villain} colors={['#ED1D24', '#ED1F69']}>
-        <Image source={require('../assets/categoriesImages/villain.png')} />
-      </LinearGradient>
-      <LinearGradient style={styles.antiHero} colors={['#B224EF', '#7579FF']}>
-        <Image source={require('../assets/categoriesImages/antiHero.png')} />
-      </LinearGradient>
-      <LinearGradient style={styles.alien} colors={['#0BA360', '#3CBA92']}>
-        <Image source={require('../assets/categoriesImages/alien.png')} />
-      </LinearGradient>
-      <LinearGradient style={styles.human} colors={['#FF7EB3', '#FF758C']}>
-        <Image source={require('../assets/categoriesImages/human.png')} />
-      </LinearGradient>
+    </TouchableOpacity>
+  );
+};
+
+const Categories = () => {
+  return (
+    <View style={styles.allCategories}>
+      <CategoryButton
+        onPress={() => {}}
+        linearColors={['#005BEA', '#00C6FB']}
+        iconImages={require('../assets/categoriesImages/hero.png')}
+      />
+      <CategoryButton
+        onPress={() => {}}
+        linearColors={['#ED1D24', '#ED1F69']}
+        iconImages={require('../assets/categoriesImages/villain.png')}
+      />
+      <CategoryButton
+        onPress={() => {}}
+        linearColors={['#B224EF', '#7579FF']}
+        iconImages={require('../assets/categoriesImages/antiHero.png')}
+      />
+      <CategoryButton
+        onPress={() => {}}
+        linearColors={['#0BA360', '#3CBA92']}
+        iconImages={require('../assets/categoriesImages/alien.png')}
+      />
+      <CategoryButton
+        onPress={() => {}}
+        linearColors={['#FF7EB3', '#FF758C']}
+        iconImages={require('../assets/categoriesImages/human.png')}
+      />
     </View>
   );
 };
 const styles = StyleSheet.create({
-  allCategorys: {
+  allCategories: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingHorizontal: 28,
   },
-  hero: {
-    width: 58,
-    height: 58,
-    borderRadius: 28,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  villain: {
-    width: 58,
-    height: 58,
-    borderRadius: 28,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  antiHero: {
-    width: 58,
-    height: 58,
-    borderRadius: 28,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  alien: {
-    width: 58,
-    height: 58,
-    borderRadius: 28,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  human: {
+  categoryButton: {
     width: 58,
     height: 58,
     borderRadius: 28,
@@ -65,4 +57,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
-export default Categorys;
+export default Categories;
