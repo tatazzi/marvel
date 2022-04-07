@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, SafeAreaView, StyleSheet} from 'react-native';
 import Header from './componets/Header';
 import Categorys from './componets/Categories';
-import Title from './componets/Title';
+import TitleSection from './componets/TitleSection';
 
 const App = () => {
   return (
@@ -14,11 +14,12 @@ const App = () => {
           <Text style={styles.headTextBold}>Escolha o seu personagem</Text>
         </View>
         <Categorys></Categorys>
-        <Title style={styles.categoriesTitle} type="Heróis" />
-        <Title style={styles.categoriesTitle} type="Vilões" />
-        <Title style={styles.categoriesTitle} type="Anti-heróis" />
-        <Title style={styles.categoriesTitle} type="Alienígenas" />
-        <Title style={styles.categoriesTitle} type="Humanos" />
+        <TitleSection type="Heróis" onPress={() => {}} />
+
+        <TitleSection type="Vilões" onPress={() => {}} />
+        <TitleSection type="Anti-heróis" onPress={() => {}} />
+        <TitleSection type="Alienígenas" onPress={() => {}} />
+        <TitleSection type="Humanos" onPress={() => {}} />
       </View>
     </SafeAreaView>
   );
@@ -42,8 +43,10 @@ const styles = StyleSheet.create({
     fontFamily: 'Gilroy-ExtraBold',
     fontSize: 32,
   },
-  categoriesTitle: {
-    paddingLeft: 28,
+  seeAll: {
+    paddingHorizontal: 28,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
 });
 export default App;

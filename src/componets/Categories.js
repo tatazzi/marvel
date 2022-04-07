@@ -56,6 +56,7 @@ const styles = StyleSheet.create({
     borderRadius: 28,
     justifyContent: 'center',
     alignItems: 'center',
+    
   },
 });
 export default Categories;
