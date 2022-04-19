@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  View,
   Text,
   StyleSheet,
   TouchableOpacity,
@@ -8,7 +7,7 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-const Posters = ({source, onPress, realName, pseudonym}) => {
+const Posters = ({source, onPress, realName, pseudonym, navigation}) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.touchable}>
       <ImageBackground
