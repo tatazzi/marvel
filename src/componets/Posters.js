@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-const Posters = ({source, onPress, realName, pseudonym, navigation}) => {
+const Posters = ({source, onPress, realName, pseudonym}) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.touchable}>
       <ImageBackground
