@@ -12,6 +12,7 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Characteristics from '../../componets/CharacteristicsIcon';
+import ProgressBar from '../../componets/ProgressBar';
 
 const InfoScreen = ({navigation}) => {
   return (
@@ -60,6 +61,30 @@ const InfoScreen = ({navigation}) => {
                 characteristicsText={'Terra 616'}
               />
             </View>
+            <Text style={styles.description}>
+              Em Forest Hills, Queens, Nova York, o estudante de ensino médio,
+              Peter Parker, é um cientista orfão que vive com seu tio Ben e tia
+              May. Ele é mordido por uma aranha radioativa em uma exposição
+              científica e adquire a agilidade e a força proporcional de um
+              aracnídeo. Junto com a super força, Parker ganha a capacidade de
+              andar nas paredes e tetos.
+            </Text>
+            <Text style={styles.description}>
+              Através de sua habilidade nativa para a ciência, ele desenvolve um
+              aparelho que o permitir lançar teias artificiais. Inicialmente
+              buscando capitalizar suas novas habilidades, Parker cria um traje
+              e, como Homem Aranha, torna-se uma estrela de televisão.
+            </Text>
+            <Text style={styles.abilityTitle}>Habilidade</Text>
+            <ProgressBar percent={70} ability={'Força'} />
+
+            <ProgressBar percent={70} ability={'Inteligência'} />
+
+            <ProgressBar percent={93} ability={'Agilidade'} />
+
+            <ProgressBar percent={60} ability={'Resistencia'} />
+
+            <ProgressBar percent={75} ability={'Velocidade'} />
           </ScrollView>
         </SafeAreaView>
       </LinearGradient>
@@ -83,7 +108,6 @@ const styles = StyleSheet.create({
   contentScroll: {
     paddingTop: 240,
   },
-
   name: {
     color: '#fff',
     fontFamily: 'Gilroy-Light',
@@ -99,6 +123,18 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-between',
     marginTop: 50,
+  },
+  description: {
+    color: '#fff',
+    fontFamily: 'Gilroy-Light',
+    fontSize: 14,
+    marginTop: 24,
+  },
+  abilityTitle: {
+    fontFamily: 'Gilroy-ExtraBold',
+    color: '#fff',
+    fontSize: 18,
+    marginTop: 32,
   },
 });
 export default InfoScreen;
