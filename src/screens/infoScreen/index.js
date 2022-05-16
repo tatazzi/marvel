@@ -17,7 +17,6 @@ import Movies from '../../componets/movies';
 
 const InfoScreen = ({navigation, route}) => {
   const {char} = route.params;
-  console.log(char);
   return (
     <ImageBackground
       resizeMode="cover"
