@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   View,
   Text,
@@ -15,14 +15,10 @@ import Characteristics from '../../componets/CharacteristicsIcon';
 import ProgressBar from '../../componets/ProgressBar';
 import Movies from '../../componets/movies';
 
-const InfoScreen = ({navigation}) => {
+const InfoScreen = ({navigation, route}) => {
+  const {char} = route.params;
   return (
-    <ImageBackground
-      source={{
-        uri: 'https://m.media-amazon.com/images/M/MV5BM2UwMTBmZGEtM2E3NC00YTlmLThhOWYtODMwZjQ2YWFmMDM4XkEyXkFqcGdeQXVyNzU3Nzk4MDQ@._V1_.jpg',
-      }}
-      style={styles.image}
-    >
+    <ImageBackground source={{uri: char.imageUrl}} style={styles.image}>
       <LinearGradient
         style={{flex: 1}}
         colors={['transparent', '#00000050', '#000', '#000']}
@@ -37,57 +33,50 @@ const InfoScreen = ({navigation}) => {
           >
             <AntDesign name="arrowleft" size={30} color="#fff" />
           </TouchableOpacity>
-
           <ScrollView
             contentContainerStyle={styles.contentScroll}
             style={styles.scroll}
           >
-            <Text style={styles.name}>Peter Park</Text>
-            <Text style={styles.pseudonym}>Homem Aranha</Text>
+            <Text style={styles.name}>{char.realName}</Text>
+            <Text style={styles.pseudonym}>{char.pseudonym}</Text>
             <View style={styles.characteristics}>
               <Characteristics
                 source={require('../../assets/images/ageIcon.png')}
-                characteristicsText={'30 anos'}
+                characteristicsText={`${char.characteristics.age} Anos`}
               />
               <Characteristics
                 source={require('../../assets/images/WeightIcon.png')}
-                characteristicsText={'78kg'}
+                characteristicsText={`${char.characteristics.weight} kg`}
               />
               <Characteristics
                 source={require('../../assets/images/heigthIcon.png')}
-                characteristicsText={'1.80m'}
+                characteristicsText={`${char.characteristics.height} m`}
               />
               <Characteristics
                 source={require('../../assets/images/planetIcon.png')}
-                characteristicsText={'Terra 616'}
+                characteristicsText={`${char.characteristics.earthNumber}`}
               />
             </View>
-            <Text style={styles.description}>
-              Em Forest Hills, Queens, Nova York, o estudante de ensino médio,
-              Peter Parker, é um cientista orfão que vive com seu tio Ben e tia
-              May. Ele é mordido por uma aranha radioativa em uma exposição
-              científica e adquire a agilidade e a força proporcional de um
-              aracnídeo. Junto com a super força, Parker ganha a capacidade de
-              andar nas paredes e tetos.
-            </Text>
-            <Text style={styles.description}>
-              Através de sua habilidade nativa para a ciência, ele desenvolve um
-              aparelho que o permitir lançar teias artificiais. Inicialmente
-              buscando capitalizar suas novas habilidades, Parker cria um traje
-              e, como Homem Aranha, torna-se uma estrela de televisão.
-            </Text>
+            <Text style={styles.description}>{char.description}</Text>
             <Text style={styles.TitleSection}>Habilidade</Text>
-            <ProgressBar percent={70} ability={'Força'} />
-
-            <ProgressBar percent={70} ability={'Inteligência'} />
-
-            <ProgressBar percent={93} ability={'Agilidade'} />
-
-            <ProgressBar percent={60} ability={'Resistencia'} />
-
-            <ProgressBar percent={75} ability={'Velocidade'} />
+            <ProgressBar percent={char.habilities.agility} ability={'Força'} />
+            <ProgressBar
+              percent={char.habilities.intelligence}
+              ability={'Inteligência'}
+            />
+            <ProgressBar
+              percent={char.habilities.resistance}
+              ability={'Agilidade'}
+            />
+            <ProgressBar
+              percent={char.habilities.speed}
+              ability={'Resistencia'}
+            />
+            <ProgressBar
+              percent={char.habilities.strength}
+              ability={'Velocidade'}
+            />
             <Text style={styles.TitleSection}>Filmes</Text>
-
             <ScrollView
               horizontal
               style={styles.moviesScroll}
@@ -115,6 +104,7 @@ const InfoScreen = ({navigation}) => {
     </ImageBackground>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

@@ -1,6 +1,5 @@
 import React from 'react';
 import {View, StyleSheet, Image, TouchableOpacity} from 'react-native';
-import {SearchBar} from 'react-native-screens';
 import Feather from 'react-native-vector-icons/Feather';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 
@@ -51,6 +50,19 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'flex-end',
     justifyContent: 'center',
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 22,
+  },
+  searchBar: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 20,
+    padding: 16,
+    backgroundColor: '#00ff00',
   },
 });
 
