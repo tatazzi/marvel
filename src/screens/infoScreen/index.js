@@ -17,8 +17,13 @@ import Movies from '../../componets/movies';
 
 const InfoScreen = ({navigation, route}) => {
   const {char} = route.params;
+  console.log(char);
   return (
-    <ImageBackground source={{uri: char.imageUrl}} style={styles.image}>
+    <ImageBackground
+      resizeMode="cover"
+      source={{uri: char.imageUrl}}
+      style={styles.image}
+    >
       <LinearGradient
         style={{flex: 1}}
         colors={['transparent', '#00000050', '#000', '#000']}
@@ -82,21 +87,9 @@ const InfoScreen = ({navigation, route}) => {
               style={styles.moviesScroll}
               showsHorizontalScrollIndicator={false}
             >
-              <Movies
-                source={{
-                  uri: 'https://static.wikia.nocookie.net/moviedatabase/images/2/23/Captain_America_-_Civil_War.jpg/revision/latest?cb=20161018152044}',
-                }}
-              />
-              <Movies
-                source={{
-                  uri: 'https://br.web.img3.acsta.net/pictures/17/05/29/23/31/530814.jpg',
-                }}
-              />
-              <Movies
-                source={{
-                  uri: 'https://lumiere-a.akamaihd.net/v1/images/690x0w_br_9e5801a5.jpeg?region=0%2C0%2C690%2C1035',
-                }}
-              />
+              {char.appearsOn.map(el => {
+                return <Movies source={{uri: el.posterUrl}} />;
+              })}
             </ScrollView>
           </ScrollView>
         </SafeAreaView>
